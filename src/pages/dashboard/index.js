@@ -13,9 +13,6 @@ export default function Dashboard() {
       <Snavbar />
 
       <Container className="mt-4">
-        {/* <Breadcrumb>
-          <Breadcrumb.Item active>Home</Breadcrumb.Item>
-        </Breadcrumb> */}
         <SBreadCrumb />
         <SButton>Tambah</SButton>
 
