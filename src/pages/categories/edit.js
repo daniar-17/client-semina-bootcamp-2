@@ -3,11 +3,11 @@ import { Container } from "react-bootstrap";
 import SBreadCrumb from "../../components/Breadcrumb";
 import SAlert from "../../components/Alert";
 import Form from "./form";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function CategoryEdit() {
   const navigate = useNavigate();
-  const { categoryId } = useParams();
+  // const { categoryId } = useParams();
   const [form, setForm] = useState({
     name: "",
   });
