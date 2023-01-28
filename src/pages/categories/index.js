@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import SBreadCrumb from "../../components/Breadcrumb";
 import Button from "../../components/Button";
-// import Table from "../../components/TableWithAction";
+import Table from "../../components/TableWithAction";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchCategories } from "../../redux/categories/actions";
 import SAlert from "../../components/Alert";
@@ -16,9 +16,7 @@ function Categories() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const notif = useSelector((state) => state.notif);
-  console.log("notif");
-  console.log(notif);
+  // const notif = useSelector((state) => state.notif);
   const categories = useSelector((state) => state.categories);
   const [access, setAccess] = useState({
     tambah: false,
@@ -89,15 +87,15 @@ function Categories() {
         <SAlert type={notif.typeNotif} message={notif.message} />
       )} */}
 
-      {/* <Table
+      <Table
         status={categories.status}
-        thead={["Nama", "Aksi"]}
+        thead={["Nama", "Action"]}
         data={categories.data}
         tbody={["name"]}
         editUrl={access.edit ? `/categories/edit` : null}
         deleteAction={access.hapus ? (id) => handleDelete(id) : null}
         withoutPagination
-      /> */}
+      />
     </Container>
   );
 }
