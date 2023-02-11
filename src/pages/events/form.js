@@ -27,6 +27,22 @@ export default function EventsForm({
   handleMinusTicket,
   handleChangeTicket,
 }) {
+  const optionStatus = [
+    {
+      value: "true",
+      label: "true",
+      target: { value: "true", name: "statusTicketCategories" },
+    },
+    {
+      value: "false",
+      label: "false",
+      target: { value: "false", name: "statusTicketCategories" },
+    },
+  ];
+  //   console.log("optionStatus");
+  //   console.log(optionStatus);
+  //   console.log("lists.talents");
+  //   console.log(lists.talents);
   return (
     <Form className="mb-2">
       <Row>
@@ -128,8 +144,8 @@ export default function EventsForm({
       <Row>
         <Col>
           <SelectBox
-            label={"Speaker"}
-            placeholder={"Masukan pembica"}
+            label={"Talent"}
+            placeholder={"Masukan pembicara"}
             name="talent"
             value={form.talent}
             options={lists.talents}
@@ -198,13 +214,22 @@ export default function EventsForm({
             />
           </Col>
           <Col sm={index !== 0 ? 5 : 6}>
-            <TextInputWithLabel
+            {/* <TextInputWithLabel
               placeholder={"Masukan status"}
               label={"Status"}
-              name="status"
-              value={tic.status}
+              name="statusTicketCategories"
+              value={tic.statusTicketCategories}
               type="text"
               onChange={(e) => handleChangeTicket(e, index)}
+            /> */}
+            <SelectBox
+              label={"Status"}
+              placeholder={"Pilih Status"}
+              name="statusTicketCategories"
+              value={tic.statusTicketCategories}
+              options={optionStatus}
+              isClearable={true}
+              handleChange={(e) => handleChangeTicket(e, index)}
             />
           </Col>
           {index !== 0 && (

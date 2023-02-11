@@ -29,7 +29,7 @@ function EventsCreate() {
     tickets: [
       {
         type: "",
-        status: "",
+        statusTicketCategories: "",
         stock: "",
         price: "",
       },
@@ -183,7 +183,7 @@ function EventsCreate() {
     let _temp = [...form.tickets];
     _temp.push({
       type: "",
-      status: "",
+      statusTicketCategories: "",
       stock: "",
       price: "",
     });
@@ -205,6 +205,10 @@ function EventsCreate() {
   const handleChangeTicket = (e, i) => {
     let _temp = [...form.tickets];
 
+    if (e.target.name === "statusTicketCategories") {
+      console.log("Makan Bang : " + _temp);
+      _temp[i][e.target.name] = e.target.value;
+    }
     _temp[i][e.target.name] = e.target.value;
 
     setForm({ ...form, tickets: _temp });
