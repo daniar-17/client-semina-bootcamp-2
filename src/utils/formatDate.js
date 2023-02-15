@@ -4,6 +4,7 @@ export function formatDate(date) {
     year: "numeric",
     month: "short",
     day: "2-digit",
+    locales: "id",
   });
   const [{ value: mo }, , { value: da }] = dtf.formatToParts(d);
 
