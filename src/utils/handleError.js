@@ -23,14 +23,13 @@ const handleError = (error) => {
         );
         originalRequest.headers.Authorization = `Bearer ${res.data.data.token}`;
 
-        console.log("originalRequest");
-        console.log(originalRequest);
-
         return axios(originalRequest);
       })
       .catch((err) => {
-        window.location.href = "/login";
-        localStorage.removeItem("auth");
+        console.log("err");
+        console.log(err);
+        // window.location.href = "/login";
+        // localStorage.removeItem("auth");
       });
   }
 
