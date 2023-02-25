@@ -24,10 +24,8 @@ const handleError = (error) => {
         return axios(originalRequest);
       })
       .catch((err) => {
-        console.log("err");
-        console.log(err);
-        // window.location.href = "/login";
-        // localStorage.removeItem("auth");
+        window.location.href = "/login";
+        localStorage.removeItem("auth");
       });
   }
 

@@ -31,8 +31,9 @@ function PageSignIn() {
 
   const handleSubmit = async () => {
     setIsLoading(true);
-    try {
-      const res = await postData(`/cms/auth/signin`, form);
+
+    const res = await postData(`/cms/auth/signin`, form);
+    if (res?.data?.data) {
       dispatch(
         userLogin(
           res.data.data.token,
@@ -43,12 +44,12 @@ function PageSignIn() {
       );
       setIsLoading(false);
       navigate("/");
-    } catch (error) {
+    } else {
       setIsLoading(false);
       setAlert({
         status: true,
         type: "danger",
-        message: error?.response?.data?.msg ?? "Internal Server Error",
+        message: res?.response?.data?.msg ?? "Internal Server Error",
       });
     }
   };
