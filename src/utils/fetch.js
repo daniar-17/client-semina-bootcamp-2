@@ -8,13 +8,12 @@ export async function getData(url, params) {
       ? JSON.parse(localStorage.getItem("auth"))
       : {};
 
-    const res = await axios.get(`${config.api_host_dev}${url}`, {
+    return await axios.get(`${config.api_host_dev}${url}`, {
       params,
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
-    return res;
   } catch (err) {
     return handleError(err);
   }
@@ -26,13 +25,12 @@ export async function postData(url, payload, formData) {
       ? JSON.parse(localStorage.getItem("auth"))
       : {};
 
-    const res = await axios.post(`${config.api_host_dev}${url}`, payload, {
+    return await axios.post(`${config.api_host_dev}${url}`, payload, {
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": formData ? "multipart/form-data" : "application/json",
       },
     });
-    return res;
   } catch (err) {
     return handleError(err);
   }

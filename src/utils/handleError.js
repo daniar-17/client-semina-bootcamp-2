@@ -12,8 +12,6 @@ const handleError = (error) => {
     return axios
       .get(`${config.api_host_dev}/cms/refresh-token/${session.refreshToken}`)
       .then((res) => {
-        console.log("res");
-        console.log(res);
         localStorage.setItem(
           "auth",
           JSON.stringify({
